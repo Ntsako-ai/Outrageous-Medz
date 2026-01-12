@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outrageous Medz | Premium Cannabis & Mushrooms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff00cc;
+            --neon-purple: #7029d1;
+            --electric-green: #bcff2e;
+            --hot-pink: #ff1493;
+            --glass: rgba(255, 255, 255, 0.05);
+            --header-bg: #000000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #050505; 
+            color: white; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Top Promo Bar --- */
+        .promo-ticker {
+            background: var(--hot-pink);
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--header-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo { 
+            font-family: 'Syncopate', sans-serif; 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(135deg, #ff1493 0%, #7029d1 50%, #bcff2e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content { z-index: 10; padding: 0 20px; }
+        .hero h1 { font-family: 'Syncopate', sans-serif; font-size: 3.5rem; line-height: 1; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .hero p { font-weight: bold; margin-bottom: 30px; letter-spacing: 1px; }
+
+        /* --- Safety Bar --- */
+        .safety-bar {
+            background: white;
+            color: #333;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            overflow-x: auto;
+        }
+
+        /* --- Product Grid --- */
+        section { padding: 60px 5%; }
+        h2 { font-family: 'Syncopate', sans-serif; font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--electric-green); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        /* Added CSS for images */
+        .product-img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: contain; /* Keeps the whole image visible without cropping */
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(188, 255, 46, 0.2); }
+        .product-card h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 900; }
+        .product-card p { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+
+        .price-list { list-style: none; margin-bottom: 20px; }
+        .price-list li { padding: 5px 0; border-bottom: 1px solid #eee; font-weight: bold; font-size: 0.95rem; }
+
+        .add-btn {
+            background: var(--hot-pink);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+        }
+        /* --- Package Section --- */
+        .package-section { background: #111; }
+        .package-card { background: var(--glass); border: 1px solid var(--neon-purple); color: white; }
+        .package-card h3 { color: var(--electric-green); }
+        .package-card p { color: #ccc; }
+        .package-card .price-tag { font-size: 1.8rem; font-weight: 900; color: var(--hot-pink); margin: 15px 0; display: block; }
+
+        footer { padding: 60px 5%; background: #000; border-top: 1px solid #222; text-align: center; }
+
+        /* =========================
+   RESPONSIVE FIXES
+   ========================= */
+
+/* Tablets & small laptops */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    section {
+        padding: 50px 4%;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    /* Promo ticker */
+    .promo-ticker {
+        font-size: 10px;
+    }
+
+    /* Hero */
+    .hero {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    /* Safety bar */
+    .safety-bar {
+        flex-wrap: nowrap;
+        gap: 20px;
+        font-size: 12px;
+        justify-content: flex-start;
+        padding: 12px;
+    }
+
+    /* Sections */
+    section {
+        padding: 40px 4%;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }
+
+    /* Product cards */
+    .product-card {
+        padding: 16px;
+    }
+
+    .product-img {
+        height: 180px;
+    }
+
+    .add-btn {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .price-list li {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- New Image Gallery Section --- */
+.flyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.flyer-card {
+    background: #111;
+    border: 2px solid var(--neon-pink);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.flyer-card:hover {
+    transform: scale(1.02);
+}
+
+.flyer-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.notice-banner {
+    background: linear-gradient(90deg, #000, #222);
+    border: 2px solid var(--electric-green);
+    margin-bottom: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.notice-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.notice-text {
+    flex: 1;
+    padding: 40px;
+    min-width: 300px;
+}
+
+/* --- Budtender Selection Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #111;
+    border: 2px solid var(--electric-green);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.budtender-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.budtender-option:hover {
+    border-color: var(--neon-pink);
+    background: rgba(255, 0, 204, 0.1);
+}
+
+.status-dot {
+    height: 10px;
+    width: 10px;
+    background-color: var(--electric-green);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* --- Membership Form --- */
+.membership-section {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('3.jpg'); /* Using your flyer as a background texture */
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 5%;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--electric-green);
+    box-shadow: 0 0 20px rgba(188, 255, 46, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    color: var(--electric-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--neon-pink);
+}
+
+.reg-btn {
+    background: linear-gradient(to right, var(--neon-pink), var(--neon-purple));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.reg-btn:hover {
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="promo-ticker">
+        <div class="ticker-content">
+            MEMBERSHIP CARDS NOW READY — NEW MUSHROOM STRAINS ADDED — E-PILLS ALSO AVAILABLE — FREE DELIVERY ON BULK ORDERS — 
+            MEMBERSHIP CARDS NOW READY — NEW MUSHROOM STRAINS ADDED — E-PILLS ALSO AVAILABLE
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">Outrageous Medz</div>
+        <a href="https://wa.me/27693419134" target="_blank" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 1.2rem; cursor: pointer;">
+            🛒 👤
+        </div>
+</a>
+
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <p>BOTANICAL BLISS</p>
+            <h1>OUTRAGEOUS MENU</h1>
+            <p>100% Quality | Discreet Delivery</p>
+        </div>
+    </div>
+
+    <div class="safety-bar">
+        <span>⭐ 100% Natural Ingredients</span>
+        <span>⭐ Lab Tested for Safety & Potency</span>
+        <span>⭐ Derived from Legal Compliant Hemp</span>
+    </div>
+
+    <section style="background: #000;">
+        <h2>Featured Announcements</h2>
+        
+        <div class="notice-banner">
+            <div class="notice-img">
+                <img src="OM notice.jpg" alt="Contact Update" style="width:100%; border-radius: 13px 0 0 13px;">
+            </div>
+            <div class="notice-text">
+                <h3 style="color: var(--electric-green); font-family: 'Syncopate'; margin-bottom: 15px;">NEW CONTACT INFO</h3>
+                <p style="margin-bottom: 20px;">Our details have changed! Scan the QR code or click below to connect with our official Budtenders.</p>
+                <div style="display: flex; gap: 10px; flex-direction: column;">
+                    <span style="color: var(--hot-pink);">Kush King: 074 805 3809</span>
+                    <span style="color: var(--hot-pink);">Bud Buudha: 063 469 7478</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flyer-grid">
+            <div class="flyer-card">
+                <img src="1.jpg" alt="Outrageous Medz Menu 1">
+            </div>
+            <div class="flyer-card">
+                <img src="2.jpg" alt="Outrageous Medz Menu 2">
+            </div>
+            <div class="flyer-card">
+                <img src="3.jpg" alt="Outrageous Medz Menu 3">
+            </div>
+            <div class="flyer-card">
+                <img src="4.jpg" alt="Outrageous Medz Menu 4">
+            </div>
+        </div>
+    </section>
+
+    <section class="package-section">
+        <h2>Curated Packages</h2>
+        <div class="grid">
+            <div class="product-card package-card">
+                <h3>Maui Sky</h3>
+                <p>20g Normal | 20g Premium | 10g Exotic</p>
+                <span class="price-tag">R560</span>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Order Package</button>
+                </a>
+
+            </div>
+            <div class="product-card package-card">
+                <h3>Midnight Bloom</h3>
+                <p>30g Normal | 20g Premium | 20g Exotic | 1g B-Indoor</p>
+                <span class="price-tag">R720</span>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Order Package</button>
+                </a>
+
+            </div>
+            <div class="product-card package-card">
+                <h3>The Fierce Flamingo</h3>
+                <p>30g Normal | 30g Premium | 25g Exotic | 1g Agrade Indoor</p>
+                <span class="price-tag">R980</span>
+                <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Order Package</button>
+                </a>
+
+            </div>
+            <div class="product-card package-card">
+                <h3>Rugged River Exotic</h3>
+                <p>50g Normal | 50g Premium | 30g Exotic | 2g Indoor | 1g Shrooms</p>
+                <span class="price-tag">R1530</span>
+                <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Order Package</button>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Exotic & Premium Strains</h2>
+        <div class="grid">
+            <div class="product-card">
+                <img src="ghost-train-haze-1200x900.jpg" class="product-img">
+                <h3>Ghost Train Haze / Kosher Kush</h3>
+                <p>Exotic Greenhouse Strains</p>
+                <ul class="price-list">
+                    <li>5g - R200</li>
+                    <li>10g - R350</li>
+                    <li>20g - R550</li>
+                    <li>100g - R1700</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Get</button>
+                </a>
+
+            </div>
+            <div class="product-card">
+                <img src="purple-urkle-bud.jpg" class="product-img">
+                <h3>Wedding Cake / Purple Urkle</h3>
+                <p>Aquaponic Greenhouse</p>
+                <ul class="price-list">
+                    <li>5g - R350</li>
+                    <li>10g - R550</li>
+                    <li>20g - R1000</li>
+                    <li>50g - R1700</li>
+                </ul>
+            <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Get</button>
+            </a>
+
+            </div>
+            <div class="product-card">
+                <img src="blue-dream.jpg" class="product-img">
+                <h3>Blue Dream / White Truffle</h3>
+                <p>Premium Greenhouse Strains</p>
+                <ul class="price-list">
+                    <li>20g - R300</li>
+                    <li>50g - R500</li>
+                    <li>112g - R1000</li>
+                    <li>200g - R1600</li>
+                </ul>
+            <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Get</button>
+            </a>
+
+            </div>
+            <div class="product-card">
+                <img src="white_widow_strain.jpg" class="product-img">
+                <h3>White Widow</h3>
+                <p>B Grade Indoor</p>
+                <ul class="price-list">
+                    <li>4g - R200</li>
+                    <li>10g - R450</li>
+                </ul>
+            <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Get</button>
+            </a>
+
+            </div>
+            <div class="product-card">
+                <img src="67ad3d86dbb781a959c8a0a2_Lemon Cherry Gelato - window (1).jpg" class="product-img">
+                <h3>Lemon Cherry Gelato</h3>
+                <p>Indoor Strains</p>
+                <ul class="price-list">
+                    <li>1g - R150</li>
+                    <li>5g - R550</li>
+                </ul>
+            <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Get</button>
+            </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #1a1a1a;">
+        <h2>Mushrooms</h2>
+        <div class="grid">
+            <div class="product-card">
+                <img src="Rusty-White-Shrooms-1.jpg" class="product-img">
+                <h3>Mushroom Strains</h3>
+                <p>Equador | Blue Meanies | Rusty Whites</p>
+                <ul class="price-list">
+                    <li>1g - R100</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Order Shrooms</button>
+                </a>
+
+            </div>
+                <div class="product-card">
+                <img src="51360987174_1321982fcd_z.jpg" class="product-img">
+                <h3>Mushroom Strains</h3>
+                <p>Equador | Blue Meanies | Rusty Whites</p>
+                <ul class="price-list">
+                    <li>10g - R750</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Order Shrooms</button>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+     <section style="background: #1a1a1a;">
+        <h2>Pre-Rolls</h2>
+        <div class="grid">
+            <div class="product-card">
+                <h3>Pre-Rolls</h3>
+                <p>Perfectly Rolled Specials</p>
+                <ul class="price-list">
+                    <li>4 Pack - R100</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Order Pack</button>
+                </a>
+
+            </div>
+                        <div class="product-card">
+                <h3>Pre-Rolls</h3>
+                <p>Perfectly Rolled Specials</p>
+                <ul class="price-list">
+                    <li>9 Pack - R200</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                    <button class="add-btn">Order Pack</button>
+                </a>
+
+            </div>
+            <div class="product-card">
+                <h3>Pre-Rolls</h3>
+                <p>Perfectly Rolled Specials</p>
+                <ul class="price-list">
+                    <li>15 Pack - R300</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Order Pack</button>
+                </a>
+
+            </div>
+            <div class="product-card">
+                <h3>Pre-Rolls</h3>
+                <p>Perfectly Rolled Specials</p>
+                <ul class="price-list">
+                    <li>26 Pack - R500</li>
+                </ul>
+                <a href="https://wa.me/27693419134" target="_blank">
+                <button class="add-btn">Order Pack</button>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="membership-section">
+    <div class="form-container">
+        <h2 style="margin-bottom: 10px;">Apply for Membership</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #ccc;">Join the elite. Get exclusive access to Indoor Strains & Shrooms.</p>
+        
+        <form id="membershipForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label>WhatsApp Number</label>
+                <input type="tel" placeholder="071 234 5678" required>
+            </div>
+            <div class="form-group">
+                <label>Preferred Budtender</label>
+                <select style="width:100%; padding:12px; background:#222; color:white; border-radius:8px; border:1px solid #444;">
+                    <option>Kush King</option>
+                    <option>Bud Buudha</option>
+                </select>
+            </div>
+                        <a href="https://wa.me/27693419134" target="_blank">
+                <button type="submit" class="add-btn">Request Membership Card</button>
+        </form>
+    </div>
+</section>
+
+    <footer>
+        <div class="logo">Outrageous Medz</div>
+        <p style="margin-top: 20px; color: #666; font-size: 0.8rem;">
+            © 2026 Outrageous Medz. Membership cards now ready. E-Pills available upon request.
+        </p>
+    </footer>
+
+    <div id="contactModal" class="modal">
+    <div class="modal-content">
+        <h3 style="font-family: 'Syncopate'; margin-bottom: 10px;">Select a Budtender</h3>
+        <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Choose a contact to place your order</p>
+        
+        <a href="https://wa.me/27748053809" class="budtender-option" target="_blank">
+            <span><span class="status-dot"></span> Kush King</span>
+            <span style="font-size: 0.8rem; color: var(--hot-pink);">074 805 3809</span>
+        </a>
+
+        <a href="https://wa.me/27634697478" class="budtender-option" target="_blank">
+            <span><span class="status-dot"></span> Bud Buudha</span>
+            <span style="font-size: 0.8rem; color: var(--hot-pink);">063 469 7478</span>
+        </a>
+
+        <button onclick="closeModal()" style="background:none; border:none; color:#555; cursor:pointer; margin-top:10px;">Close</button>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("contactModal");
+
+    // Open the modal
+    function openModal(e) {
+        if(e) e.preventDefault();
+        modal.style.display = "flex";
+    }
+
+    // Close the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Close if clicking outside the box
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // Automatically attach this to all your "Order" and "Get" buttons
+    document.querySelectorAll('.add-btn').forEach(button => {
+        button.onclick = openModal;
+    });
+</script>
+
+</body>
+</html>
